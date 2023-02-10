@@ -1,0 +1,53 @@
+# 4、十大歌手比赛
+
+# 字典实现法
+
+# 评委
+listkeys = ['1评','2评','3评','4评','5评','6评','7评','8评','9评','10评']
+# 分数
+listvalues = []
+for i in range(1,11):
+    score = eval(input(f"请第{i}位评委评分:\n"))
+    listvalues.append(score)
+# 创建字典
+dict = dict(zip(listkeys,listvalues))
+print(dict)
+# 返回字典中的最小值对应的键
+print(min(dict))
+# 最低分
+print("去掉最低分：",dict.get(min(dict)))
+# 返回字典中的最大值对应的键
+print(max(dict))
+# 最低分
+print("去掉最高分：",dict.get(max(dict)))
+# 去掉最低分
+del(dict[min(dict)])
+# 去掉最高分
+del(dict[max(dict)])
+# 去掉后最终得分（即平均分）
+print("选手最终得分为：",round(sum(dict.values())/len(dict.values()),1))
+
+
+
+
+
+
+
+
+
+# 
+
+dict = {'x': 2,'y': 3,'z': 1}
+
+# 错
+
+print(min(dict))
+
+print(dict.get(min(dict)))
+
+# 对
+
+print(max(dict,key=dict.get))
+
+print(max(dict.values()))
+
